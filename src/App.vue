@@ -1,23 +1,38 @@
+<style lang="less">
+	html,body,#app{
+		height: 100%;
+		overflow: hidden;
+	}
+	#app{
+		display: flex;
+		flex-direction: column;
+		.main-wrapper{
+			flex:1 ;
+		}
+		.bottom-wrapper{
+			height: 1.4rem;
+			line-height: 1.4rem;
+		}
+	}
+</style>
+
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
+	<div id="app">
+		<div class="main-wrapper">
+			<router-view/>
+		</div>
+		<div class="bottom-wrapper">
+			<Bmenu></Bmenu>
+		</div>
+	</div>
 </template>
 
 <script>
-export default {
-  name: 'app'
-}
+	import Bmenu from './components/Bmenu.vue'
+	export default {
+		name: 'app',
+		components: {
+			'Bmenu': Bmenu
+		}
+	}
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
