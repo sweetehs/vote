@@ -39,10 +39,16 @@ const getDetail = (list) => {
     list.map((item) => {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
+<<<<<<< HEAD
                 debugger
                 request.get({
                     url: 'http://www.meituan.com/shenghuo/' + item.id + '/',
                     headers: {
+=======
+                request.get({
+                    url: 'http://www.meituan.com/shenghuo/' + item.id + '/',
+                    header: {
+>>>>>>> 48f4bf5d814d937f55133797ea4ca007d9d9928a
                         'Upgrade-Insecure-Requests': 1,
                         'Host': 'www.meituan.com',
                         'Referer': 'http://bj.meituan.com/s/' + encodeURI(key) + '/',
