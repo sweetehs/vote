@@ -1,36 +1,34 @@
 @import url(http://fonts.googleapis.com/css?family=Oswald);
 .count {
   box-shadow: 0 10px 5px -5px rgba(0, 0, 0, 0.2);
-  height: 300px;
-  left: 45%;
-  line-height: 300px;
-  margin: -150px 0 -100px;
-  -moz-perspective: 500px;
-  -webkit-perspective: 500px;
+  height: 1rem;
+  line-height: 1rem;
+  margin: -0.5rem 0 -0.3rem;
+  -moz-perspective: 2rem;
+  -webkit-perspective: 2rem;
   perspective: 500px;
-  position: absolute;
   text-align: center;
-  top: 50%;
   -moz-transform: translateZ(0);
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
-  width: 200px;
+  width: 0.6rem;
+  position: relative
 }
-@media screen and (max-width: 480px){
+/* @media screen and (max-width: 480px){
   .count{top:70%;left:30%}
-}
+} */
 .count span {
   background: #202020;
   color: #f8f8f8;
   display: block;
-  font-size: 250px;
+  font-size: 0.4rem;
   left: 0;
   position: absolute;
   top: 0;
   text-shadow: 0 1px 0 #282828, 0 2px 0 #1e1e1e, 0 3px 0 #141414, 0 4px 0 #0a0a0a, 0 5px 0 #000, 0 0 10px rgba(0, 0, 0, 0.8);
-  -moz-transform-origin: 0 150px 0;
-  -webkit-transform-origin: 0 150px 0;
-  transform-origin: 0 150px 0;
+  -moz-transform-origin: 0 0.5rem 0;
+  -webkit-transform-origin: 0 0.5rem 0;
+  transform-origin: 0 0.5rem 0;
   width: 100%;
 }
 .count span:before {
@@ -50,7 +48,7 @@
   width: 100%;
 }
 .count .small {
-  font-size: 175px;
+  font-size: 0.5rem;
 }
 .count .top {
   border-top-left-radius: 11px;
