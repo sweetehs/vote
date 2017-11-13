@@ -1,5 +1,7 @@
 <style>
-
+    .pirtures-inner{
+        padding: 0.05rem;
+    }
 </style>
 <template>
     <div class="pictures-wrapper">

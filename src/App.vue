@@ -10,6 +10,7 @@
 			flex:1 ;
 			flex-flow: 1;
 			overflow: auto;
+			-webkit-overflow-scrolling:touch;
 		}
 		.bottom-wrapper{
 			height: 1.2rem;

@@ -7,12 +7,13 @@
         }
         li{
              padding: 0.1rem;   
-             box-shadow: 0 0 0.5rem #888;
-             .img{
-                 img{
-                     width: 100%;
-                 }
-             }
+            box-shadow: 0 0 0.2rem #888;
+            margin: 0.1rem;
+            .img{
+                img{
+                    width: 100%;
+                }
+            }
         }
     }
 </style>
@@ -47,15 +48,14 @@
                 arr.push({
                     img:'/static/'+parseInt(Math.random()*10%4)+'.jpg'
                 })                
-            }
-            debugger;
+            }            
             return {
                 arr:arr,
                 leftArr:{
                     height:0,
                     arr:[]
                 },
-                rightArr:{
+                rightArr:{  
                     height:0,
                     arr:[]
                 }
@@ -63,22 +63,29 @@
         },
         methods:{
             setArr(){  
-                var that = this                         
-                this.arr.map((_d)=>{
+                let that = this
+                let left = []
+                let right = []
+                this.arr.map((_d,index)=>{
                     const img = new Image()
                     img.src = _d.img                    
                     img.onload = (_i)=>{                                     
                         if(that.leftArr.height >= that.rightArr.height){
                             that.rightArr.height += _i.target.height
-                            that.rightArr.arr.push({
-                                img:_d.img
+                            right.push({
+                                img:_d.img,
+                                index:index
                             })                           
                         }else{
                             that.leftArr.height += _i.target.height
-                            that.leftArr.arr.push({
-                                img:_d.img
+                            left.push({
+                                img:_d.img,
+                                index:index
                             })
-                        }                        
+                        }                    
+                        if(index == that.arr.length-1){
+                            // Array.prototype.push.call(that.leftArr,())
+                        }    
                     }
                 })
             }
