@@ -1,22 +1,24 @@
 <style lang="less" scope>
-    .waterfall-inner{
+    .waterfall-inner {
         display: flex;
-        .left,.right{
-            flex: 1;      
-            flex-grow: 1;                     
+        .left,
+        .right {
+            flex: 1;
+            flex-grow: 1;
         }
-        li{
-             padding: 0.1rem;   
+        li {
+            padding: 0.1rem;
             box-shadow: 0 0 0.2rem #888;
             margin: 0.1rem;
-            .img{
-                img{
+            .img {
+                img {
                     width: 100%;
                 }
             }
         }
     }
 </style>
+
 <template>
     <div class="waterfall-wrapper">
         <div class="waterfall-inner">
@@ -39,63 +41,65 @@
         </div>
     </div>
 </template>
-<script>    
-    export default{
-        data(){
-            debugger
+
+<script>
+    export default {
+        data() {
             let arr = []
-            for(let i = 0;i < 20; i++){
+            for (let i = 0; i < 20; i++) {
                 arr.push({
-                    img:'/static/'+parseInt(Math.random()*10%4)+'.jpg'
-                })                
-            }            
+                    img: '/static/' + parseInt(Math.random() * 10 % 4) + '.jpg'
+                })
+            }
             return {
-                arr:arr,
-                leftArr:{
-                    height:0,
-                    arr:[]
+                arr: arr,
+                leftArr: {
+                    height: 0,
+                    arr: []
                 },
-                rightArr:{  
-                    height:0,
-                    arr:[]
+                rightArr: {
+                    height: 0,
+                    arr: []
                 }
             }
         },
-        methods:{
-            setArr(){  
+        methods: {
+            setArr() {
                 let that = this
                 let left = []
                 let right = []
-                this.arr.map((_d,index)=>{
+                this.arr.map((_d, index) => {
                     const img = new Image()
-                    img.src = _d.img                    
-                    img.onload = (_i)=>{                                     
-                        if(that.leftArr.height >= that.rightArr.height){
+                    img.src = _d.img
+                    img.onload = (_i) => {
+                        if (that.leftArr.height >= that.rightArr.height) {
                             that.rightArr.height += _i.target.height
                             right.push({
-                                img:_d.img,
-                                index:index
-                            })                           
-                        }else{
+                                img: _d.img,
+                                index: index
+                            })
+                        } else {
                             that.leftArr.height += _i.target.height
                             left.push({
-                                img:_d.img,
-                                index:index
+                                img: _d.img,
+                                index: index
                             })
-                        }                    
-                        if(index == that.arr.length-1){
-                            // Array.prototype.push.call(that.leftArr,())
-                        }    
+                        }
+                        if (index == that.arr.length - 1) {
+                            that.leftArr.arr = that.leftArr.arr.concat(left)
+                            that.rightArr.arr = that.rightArr.arr.concat(right)
+                            // Array.prototype.push.call(that.leftArr.arr, left)
+                            // Array.prototype.push.call(that.rightArr.arr, right)
+                        }
                     }
                 })
             }
         },
-        mounted(){
-            debugger
+        mounted() {
             this.setArr();
         },
-        components:{
-           
+        components: {
+
         }
     }
 </script>
