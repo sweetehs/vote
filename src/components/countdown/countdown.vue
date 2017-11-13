@@ -15,20 +15,32 @@
     export default {
         data() {
             return {
+                currentNum: 0,
+                nextNum: 0,
                 animateClass: ''
             }
         },
-        props:['currentNum','nextNum'],
+        props:['num','end'],
         watch:{
-            currentNum(){
-                this.animate()
-            }
+            num(){
+                if(!this.end){
+                    this.setNum()
+                    this.animate()
+                }
+            },
         },
         methods: {
+            setNum(){
+                this.nextNum = this.num
+                this.currentNum = this.nextNum + 1
+                if(this.currentNum == 10){
+                    this.currentNum = 0
+                }
+            },
             animate() {
                 setTimeout(() => {
                     this.animateClass = "changing"
-                }, 50)
+                }, 100  )
                 setTimeout(() => {
                     this.animateClass = "changed"
                 }, 800)
