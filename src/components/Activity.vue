@@ -27,6 +27,9 @@
                 margin-top: 0.1rem;
             }
         }
+        .countdown-module{
+            margin-top: 0.8rem;
+        }
     }
 </style>
 
@@ -52,7 +55,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="countdown">
+            <div class="countdown-module">
                 <cdmain></cdmain>
             </div>
         </div>

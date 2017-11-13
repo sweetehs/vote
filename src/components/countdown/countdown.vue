@@ -14,29 +14,17 @@
     import "./countdown.css"
     export default {
         data() {
-            return {
-                currentNum: 0,
-                nextNum: 0,
+            return {       
                 animateClass: ''
             }
         },
-        props:['num','end'],
+        props:['currentNum','nextNum'],
         watch:{
-            num(){
-                if(!this.end){
-                    this.setNum()
-                    this.animate()
-                }
-            },
+            nextNum(){
+                this.animate()
+            }
         },
         methods: {
-            setNum(){
-                this.nextNum = this.num
-                this.currentNum = this.nextNum + 1
-                if(this.currentNum == 10){
-                    this.currentNum = 0
-                }
-            },
             animate() {
                 setTimeout(() => {
                     this.animateClass = "changing"

@@ -8,10 +8,13 @@
 		flex-direction: column;
 		.main-wrapper{
 			flex:1 ;
+			flex-flow: 1;
+			overflow: auto;
+			-webkit-overflow-scrolling:touch;
 		}
 		.bottom-wrapper{
-			height: 1.4rem;
-			line-height: 1.4rem;
+			height: 1.2rem;
+			line-height: 1.2rem;
 		}
 	}
 </style>
