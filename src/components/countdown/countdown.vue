@@ -20,7 +20,7 @@
         },
         props:['currentNum','nextNum'],
         watch:{
-            currentNum(){
+            nextNum(){
                 this.animate()
             }
         },
